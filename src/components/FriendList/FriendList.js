@@ -7,11 +7,10 @@ const FriendList = ({ friends }) => {
         <ul className={css.friendList}>
             {friends.map(friend => {
                 const classNames = [css.status];
-                {friend.isOnline ? classNames.splice(0,0,css.statusOnline) : classNames.splice(0,0,css.statusOffline)}
 
                 return (
                     <li key={friend.id} className={css.itemFriend}>
-                        <span className={classNames.join(" ")}></span>
+                        <span className={friend.isOnline ? css.statusOnline : css.statusOffline}></span>
                     <img className={css.avatar} src={friend.avatar} alt="User avatar" width="48" />
                     <p className={css.name}>{friend.name}</p>
                 </li>
